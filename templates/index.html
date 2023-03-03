@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Rick And Morty API</title>
+  </head>
+  <body>
+    <center>
+    <h1>Lista de Personajes</h1>
+    </center>
+    <div class="pagination">
+      {% if pagina > 1 %}
+        <a href="{{ url_for('examen', pagina=1) }}"> Primera</a>
+        <br/>
+        <a href="{{ url_for('examen', pagina=pagina-1) }}"> Anterior </a>
+        <br/>
+      {% endif %}
+    <br/>
+      {% if pagina < paginas %}
+        <a href="{{ url_for('examen', pagina=pagina+1) }}"> Siguiente </a>
+        <br/>
+        <a href="{{ url_for('examen', pagina=paginas) }}"> Última </a>
+        <br/>
+      {% endif %}
+    </div>
+
+    
+
+  <div class="container mt-4">
+    <div class="row">
+              {% for r in lista %}
+      <div class="col-6">
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="{{r.image}}" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col"><label class="card-title h5">{{r.name}}</label><br></div>
+                    <div class="col text-end"><a href="ver/{{r.id}}" class="card-link">Perfil</a></div>
+                  </div>
+                  <label class="card-text"><small class="text-muted">N°:</small></label>
+                  <label class="card-text"><small>{{r.id}} </small></label><br>
+                  <label class="card-text"><small class="text-muted">Especie:</small></label>
+                  <label class="card-text"><small>{{r.status}} - {{r.species}}</small></label><br>
+                  <label class="card-text"><small class="text-muted">Última ubicación conocida:</small></label>
+                  <label class="card-text"><small>{{r.location.name}}</small></label><br>
+                  <label class="card-text"><small class="text-muted">Origen:</small></label>
+                  <label class="card-text"><small>{{r.origin.name}}</small></label>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>
