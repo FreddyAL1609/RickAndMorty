@@ -42,16 +42,17 @@
               <div class="col-md-8">
                 <div class="card-body">
                   <div class="row">
-                    <div class="col"><label class="card-title h5">{{r.name}}</label><br></div>
-                    <div class="col text-end"><a href="ver/{{r.id}}" class="card-link">Perfil</a></div>
+                    <div class="col"><label class="card-title h5">{{r.name}} </label></div>
+                    <div class="col text-end"><a href="ver/{{r.id}}" class="card-link">{{r.id}} </a></div>
                   </div>
-                  <label class="card-text"><small class="text-muted">N°:</small></label>
-                  <label class="card-text"><small>{{r.id}} </small></label><br>
-                  <label class="card-text"><small class="text-muted">Especie:</small></label>
-                  <label class="card-text"><small>{{r.status}} - {{r.species}}</small></label><br>
-                  <label class="card-text"><small class="text-muted">Última ubicación conocida:</small></label>
+                 
+                  <label class="card-text"><small><b>Estado:</b></small></label>
+                  <label class="card-text"><small>{{r.status}} </small></label><br>
+                  <label class="card-text"><small><b>Especie:</b></small></label>
+                  <label class="card-text"><small> {{r.species}}</small></label><br>
+                  <label class="card-text"><small><b>Última ubicación conocida:</b></small></label>
                   <label class="card-text"><small>{{r.location.name}}</small></label><br>
-                  <label class="card-text"><small class="text-muted">Origen:</small></label>
+                  <label class="card-text"><small><b>Origen:</b></small></label>
                   <label class="card-text"><small>{{r.origin.name}}</small></label>
                 </div>
               </div>
